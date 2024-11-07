@@ -1,18 +1,24 @@
-import Header from './components/Cabecalho'
+import React from 'react';
+
+import { ThemeProvider } from 'styled-components'
+
+import Header from './components/Cabecalho/index'
 import Hero from './components/Hero'
 import ListaVagas from './containers/ListaVagas'
 
-import './global.css'
+import GlobalStyle, { Container } from './global'
+import Colors from './theme/colors'
 
 function App() {
   return (
-    <>
+    <ThemeProvider theme={Colors}>
+      <GlobalStyle />
       <Header />
       <Hero />
-      <div className="container">
+      <Container>
         <ListaVagas />
-      </div>
-    </>
+      </Container>
+    </ThemeProvider>
   )
 }
 
